@@ -14,4 +14,4 @@ var mongoose = require('mongoose');
 
 //module export
 
-exports.module = TripPlanner;
+module.exports = TripPlanner;
