@@ -1,0 +1,17 @@
+{
+  "name": "hike_planner",
+  "description": "Hike planning made easy",
+  "main": "index.js",
+  "authors": [
+    "Eric",
+    "Tim",
+    "Chris"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/MagWeaver/hrr16-allosaurus",
+  "dependencies": {
+    "angular": "~1.3.16",
+    "angular-route": "~1.3.16",
+    "angular-mocks": "~1.3.16"
+  }
+}
