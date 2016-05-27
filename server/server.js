@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost/TripPlanner', function(err, db){
 
 //middleware
 
-// require('./middleware');
+// require('./config/middleware.js')(app,express);
 
 
 //configure server
