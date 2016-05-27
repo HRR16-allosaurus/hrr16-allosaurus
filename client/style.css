@@ -1,0 +1,20 @@
+/*.outer {
+  position: absolute;
+}*/
+.center {
+  vertical-align: middle;
+
+
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.status a span {
+  margin-right: 10px;
+}
+
+.status a.active span {
+  background: yellow;
+}

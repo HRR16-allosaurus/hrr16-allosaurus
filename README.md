@@ -24,11 +24,11 @@
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node 6.0.0
+- Mongo 3.2.6
+- Mongoose 4.1.0
+- Express 4.4.5
+- Angular 1.3.16
 
 ## Development
 
