@@ -1,0 +1,17 @@
+<div class="text-left">
+  <p class="text-center">Review</p>
+  <div>Name: {{ tripData.name }}</div>
+  <div>Where: {{ tripData.where }}</div>
+  <div>Leave: {{ tripData.begin }}</div>
+  <div>Come Back: {{ tripData.end }}</div>
+  <div>Supplies
+    <ul class="list-unstyled">
+      <li ng-repeat="supply in tripData.supplies track by $index">
+        {{ supply }}
+      </li>
+    </ul>
+  </div>
+  
+  
+  <button type="submit" ng-click="post()">Submit</a></button>
+</div>

@@ -1,0 +1,17 @@
+<div class="form-group">
+  <label>What supplies do you need?</label>
+  <input class="form-control" type="text" ng-model="supply.value" name="supply" placeholder="add supply" autocomplete="off" />
+  <button class="btn btn-default btn-sm" ng-click="addSupplies()">Add</button>
+  
+  <div class="text-left">
+    <ul class="list-unstyled">
+      <li ng-repeat="supply in tripData.supplies track by $index">
+        <button class="btn btn-xs btn-danger" ng-click="removeSupplies(supply)">Remove</button>
+        <span>{{ supply }}</span>
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-default btn-sm">
+    <a ui-sref="new-trip.summary">Review</a>
+  </button>
+</div>
