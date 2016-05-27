@@ -1,18 +1,16 @@
 //main setup for routing mongoose to server
 
 //export modules
-modules.exports = function(app, express){
+module.exports = function(app){
   
+    console.log('This is the routing module punk!');
   //setup routing 
-  //posts and gets
+
+
+  //get requests
   
-  // app.get();
-  // app.post('/',function(request, response){
-    var where = request.body.where;
-      store(where);
-    
-    
-  // });
+  
+  //post requests
   
   
   
