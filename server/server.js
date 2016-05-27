@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 //call dependencies from db, routing 
    
 //setup up listener on mongo
-mongoose.connect('mongodb://localhost/TripPlanner', function(err, db){
+mongoose.connect('mongodb://localhost:27017/TripPlanner', function(err, db){
   if (err) {
     throw err;
   }else {
@@ -15,15 +15,11 @@ mongoose.connect('mongodb://localhost/TripPlanner', function(err, db){
   }
 });
 
-//router setup for db
-  //routing call is working 
-require(__dirname+'/db/routing.js')(app);
-
-
-
 //middleware
+require('./config/middleware.js')(app,express);
 
-// require('./config/middleware.js')(app,express);
+//router setup for db
+require('./db/routing.js')(app);
 
 
 //configure server

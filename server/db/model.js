@@ -7,11 +7,11 @@ var mongoose = require('mongoose');
     TripName: String,
     Where: String,
     When: String,
-    Gear: []
+    Gear: [String]
   });
  
- var TripPlanner = mongoose.model('TripPlanner',TripPlannerSchema);
+ // var TripPlanner = mongoose.model('TripPlanner',TripPlannerSchema);
 
 //module export
 
-module.exports = TripPlanner;
+module.exports = mongoose.model('TripPlanner',TripPlannerSchema);
