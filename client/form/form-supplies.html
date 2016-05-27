@@ -1,0 +1,13 @@
+<div>
+  <label>What supplies do you need?</label>
+  <input type="text" ng-model="supply.value" name="supply" placeholder="add supply" />
+  <button ng-click="addSupplies()">Add</button>
+  <!-- ng-keydown="$event.which === 13 && addSupplies() -->
+  
+  <div class="text-left">
+    <ul>
+      <li ng-repeat="supply in tripData.supplies">{{ supply }}</li>
+    </ul>
+  </div>
+  <button class="btn"><a ui-sref="form.summary">Summary</a></button>
+</div>
