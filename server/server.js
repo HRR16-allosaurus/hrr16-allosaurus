@@ -16,8 +16,8 @@ mongoose.connect('mongodb://localhost/TripPlanner', function(err, db){
 });
 
 //router setup for db
-
-// require(__dirname+'/db/routing');
+  //routing call is working 
+require(__dirname+'/db/routing.js')(app);
 
 
 
