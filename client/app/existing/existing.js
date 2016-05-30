@@ -7,16 +7,17 @@ angular.module('hikeplanner.existing', [])
 
   $scope.getAll = function() {
     console.log('retrieved');
-    // return $http({
-    //   method: 'GET',
-    //   url: '/summary'
-    // })
-    // .then(function (resp) {
-    //   $scope.allTrips = resp;
-    // });
-    $scope.allTrips = data;
-    $scope.tripNames = _.pluck($scope.allTrips, "name");
-    console.log($scope.allTrips);
+    return $http({
+      method: 'GET',
+      url: '/summary'
+    })
+    .then(function (resp) {
+      console.log(resp.data);
+      $scope.allTrips = resp.data;
+      $scope.tripNames = _.pluck($scope.allTrips, "name");
+    });
+    // $scope.allTrips = data;
+    // console.log($scope.allTrips);
   };
 
 });
