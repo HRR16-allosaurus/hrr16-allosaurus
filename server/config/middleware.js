@@ -1,12 +1,10 @@
-//import modules
+var bodyParser = require('body-parser');
+// var morgan = require('morgan'); <--Need in package JSON
 
-
-module.exports = function(app, express){
-  console.log('You are now in middleware punk!');
+module.exports = function(app,express){
 //basic configuration for express
-  // set viewing engine
-  // set encoding 
-  // static file directory 
-
-//export module
+  // app.use(morgan('dev')); <--- need?
+  app.use(bodyParser.urlencoded({extended: true}));
+  app.use(bodyParser.json());
+  app.use(express.static(__dirname + '/../../client'));
 };
