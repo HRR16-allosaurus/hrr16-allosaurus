@@ -5,10 +5,11 @@ var trip = require('./model.js');
 
 exports.createTrip = function(req, res){
   console.log("I've been called");
-  new trip({TripName: req.body.TripName,
-    Where: req.body.Where,
-    When: req.body.When,
-    Gear: req.body.Gear
+  new trip({name: req.body.name,
+    where: req.body.where,
+    begin: req.body.begin,
+    end: req.body.end,
+    supplies: req.body.supplies
   }).save();
 
 };
@@ -23,13 +24,4 @@ exports.getTrips = function(req, res){
   })
 };
 
-exports.getTrips = function(req, res){
-  trip.find({}, function(err, trips){
-    if(err){
-      console.log(err);
-    } else {
-      res.json(trips);
-    }
-  })
-};
 
