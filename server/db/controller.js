@@ -23,5 +23,13 @@ exports.getTrips = function(req, res){
   })
 };
 
+exports.getTrips = function(req, res){
+  trip.find({}, function(err, trips){
+    if(err){
+      console.log(err);
+    } else {
+      res.json(trips);
+    }
+  })
+};
 
-//export moduleasdf
