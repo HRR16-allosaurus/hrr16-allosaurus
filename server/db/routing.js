@@ -4,7 +4,7 @@ var handler = require('./controller');
 module.exports = function(app){
   
   //setup routing 
-  app.get('/getdata',function(req, resp){
+  app.get('/summary',function(req, resp){
     handler.getTrips(req,resp);
   });
   
