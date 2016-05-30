@@ -1,10 +1,10 @@
-/*.outer {
-  position: absolute;
-}*/
+.main {
+  height: 50%;
+  
+  
+}
 .center {
   vertical-align: middle;
-
-
 }
 
 a:hover {
@@ -16,5 +16,20 @@ a:hover {
 }
 
 .status a.active span {
-  background: yellow;
+  font-weight: bold;
+}
+
+.pano {
+  background-image: url("./img/bg2.jpg");
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.back {
+  background-image: url("./img/bg1.jpg");
+  background-repeat: no-repeat;
+}
+
+.trip-header {
+  margin-top: 10px;
 }

@@ -1,7 +1,8 @@
 angular.module('hikeplanner', [
   'ui.router',
   'ngAnimate',
-  'hikeplanner.new-trip'
+  'hikeplanner.new-trip',
+  'hikeplanner.existing'
 ])
 
 .config(function($stateProvider, $urlRouterProvider) {

@@ -1,9 +1,9 @@
 <div class="form-group">
-  <label>FROM:</label>
-  <input class="form-control" type="date" name="when" ng-model="tripData.begin" />
-  <label>TO:</label>
-  <input class="form-control" type="date" name="when" ng-model="tripData.end" />
-  <button class="btn btn-default">
-    <a ui-sref="new-trip.supplies">Next</a>
-  </button>
+  <!-- <p class="text-center trip-header">When</p> -->
+  <label class="text-center trip-header">from:</label>
+  <input class="form-control" type="date" name="when" ng-model="tripData.begin" required />
+  <label>to:</label>
+  <input class="form-control" type="date" name="when" ng-model="tripData.end" required />
+
+  <a ui-sref="new-trip.supplies"><button class="btn btn-default">Next</button></a>
 </div>
