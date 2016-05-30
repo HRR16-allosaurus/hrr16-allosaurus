@@ -10,17 +10,16 @@
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="lib/angular-animate/angular-animate.min.js"></script>
-    
     <script src="app/new-trip/new-trip.js"></script>
-    <!-- <script src="app/existing/new-trip.js"></script> -->
-    
+    <script src="app/existing/existing.js"></script>
     <script src="app/app.js"></script>
+    
   </head>
 
-  <body ng-app="hikeplanner">
+  <body ng-app="hikeplanner" class="">
   
-    <div class="container text-center center">
-      <div class="row bg-success">
+    <div class="container-fluid text-center center ">
+      <div class="row bg-success pano main">
         <div class="col-md-4 col-md-offset-4 status">
           <a ui-sref-active="active" ui-sref="new-trip.what"><span>New Trip</span></a>
           <a ui-sref-active="active" ui-sref="itinerary"><span>View Existing</span></a>

@@ -17,11 +17,13 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
   $scope.addSupplies = function() {
     $scope.tripData.supplies.push($scope.supply.value);
     $scope.supply.value = '';
+    // console.log(JSON.stringify($scope.tripData.supplies));
   };
   
   $scope.removeSupplies = function(item) {
+    console.log(item);
     var supplies = $scope.tripData.supplies;
-    supplies.splice(supplies.indexOf(item)[0], 1);
+    supplies.splice(supplies.indexOf(item), 1);
   }
   
 
@@ -33,7 +35,6 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
     //   data: $scope.tripData
     // })
     // .then(function (resp) {
-    //   return resp.data.token;
     // });
     
     $location.path('/itinerary');

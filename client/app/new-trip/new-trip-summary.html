@@ -1,17 +1,47 @@
-<div class="text-left">
-  <p class="text-center">Review</p>
-  <div>Name: {{ tripData.name }}</div>
-  <div>Where: {{ tripData.where }}</div>
-  <div>Leave: {{ tripData.begin }}</div>
-  <div>Come Back: {{ tripData.end }}</div>
-  <div>Supplies
-    <ul class="list-unstyled">
-      <li ng-repeat="supply in tripData.supplies track by $index">
-        {{ supply }}
-      </li>
-    </ul>
+<div>
+  <p class="text-center trip-header">Review</p>
+  <div class="text-left">
+  
+  
+    <h5>Name:</h5> 
+    <div>{{ tripData.name }}</div>
+    
+    <div><h5>Where:</h5> {{ tripData.where }}</div>
+    <div><h5>Leave:</h5> {{ tripData.begin | date: "MM-dd-yyyy" }}</div>
+    <div><h5>Return:</h5> {{ tripData.end | date: "MM-dd-yyyy" }}</div>
+    <div><h5>Supplies:</h5>
+      <ul class="list-unstyled">
+        <li ng-repeat="supply in tripData.supplies track by $index">
+          {{ supply }}
+        </li>
+      </ul>
+    </div>
   </div>
   
   
-  <button type="submit" ng-click="post()">Submit</a></button>
+  <button class="btn" type="submit" ng-click="post()">Submit</a></button>
 </div>
+<!--     <table>
+      <tr>
+        <td><span>Name:</span></td>
+        <td>{{}}</td>
+      </tr>
+      <tr>
+        <td><span>Where:</span></td>
+        <td>{{}}</td>
+      </tr>
+      <tr>
+        <td><span>Leave:</span></td>
+        <td>{{}}</td>
+      </tr>
+      <tr>
+        <td><span>Return:</span></td>
+        <td>{{}}</td>
+      </tr>
+      <tr>
+        <td><span>Supplies</span></td>
+        <td>{{}}</td>
+      </tr>
+    </table>
+  
+   -->
