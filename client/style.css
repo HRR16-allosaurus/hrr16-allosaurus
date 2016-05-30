@@ -1,10 +1,13 @@
-.main {
-  height: 50%;
-  
-  
-}
 .center {
-  vertical-align: middle;
+  background-image: url("./img/bg2.jpg");
+  background-repeat: no-repeat;
+  height: 450px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 a:hover {
@@ -17,12 +20,6 @@ a:hover {
 
 .status a.active span {
   font-weight: bold;
-}
-
-.pano {
-  background-image: url("./img/bg2.jpg");
-  background-repeat: no-repeat;
-  height: 400px;
 }
 
 .back {
