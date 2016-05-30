@@ -4,12 +4,11 @@ var handler = require('./controller');
 module.exports = function(app){
   
   //setup routing 
-  // controller.createTrip();
-  //get requests
-  
+  app.get('/summary',function(req, resp){
+    handler.getTrips(req,resp);
+  });
   
   //post requests
-    //end points: /summary
   app.post('/summary',function(req, resp){
     handler.createTrip(req,resp);
     resp.sendStatus(200);
