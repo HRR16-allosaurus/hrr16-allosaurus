@@ -2,6 +2,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
 
 .controller('newTripController', function($scope, $location, $http) {
 
+  // new trip data
   $scope.tripData = {
     name: '',
     where: '',
@@ -10,6 +11,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
     supplies: []
   };
   
+  // to handle new supplies added
   $scope.supply = {
     value: ''
   };
@@ -25,23 +27,21 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
     var supplies = $scope.tripData.supplies;
     supplies.splice(supplies.indexOf(item), 1);
   }
-  
 
   $scope.post = function() {
     console.log('posted');
-    // return $http({
-    //   method: 'POST',
-    //   url: '/summary',
-    //   data: $scope.tripData
-    // })
-    // .then(function (resp) {
-    // });
-    
+    return $http({
+      method: 'POST',
+      url: '/summary',
+      data: $scope.tripData
+    })
+    .then(function (resp) {
+      console.log(resp);
+    });
+    // console.log(data);
+    // data.push($scope.tripData);
     $location.path('/itinerary');
+    
   };
   
-  var render = function() {
-    
-  };
-
 });

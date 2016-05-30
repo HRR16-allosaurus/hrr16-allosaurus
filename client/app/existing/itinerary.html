@@ -5,12 +5,26 @@
   <h2>All Trips</h2>
   <button ng-click="getAll()">Get</button>
   
+  <select ng-model="search">
+    <option ng-repeat="trip in tripNames" value={{trip}}>{{ trip }}</option>
+  </select>
   
+  <!-- <input type='text' ng-model='search' placeholder='filter' /> -->
   
-  
-  
-  
-  
-  
-  
+  <div ng-repeat="trip in allTrips | filter:search">
+    <div><h3>Name:</h3>{{ trip.name }}</div>
+    <div><h5>Where:</h5>{{ trip.where }}</div>
+    <div><h5>Leave:</h5>{{ trip.begin | date: "MM-dd-yyyy" }}</div>
+    <div><h5>Return:</h5>{{ trip.end | date: "MM-dd-yyyy" }}</div>
+    <div><h5>Supplies:</h5>
+      <ul class="list-unstyled">
+        <li ng-repeat="supply in trip.supplies track by $index">
+          {{ supply }}
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
+
+
+  
