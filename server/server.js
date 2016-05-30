@@ -7,7 +7,8 @@ var bodyParser = require('body-parser');
 //call dependencies from db, routing 
    
 //setup up listener on mongo
-mongoose.connect('mongodb://localhost:27017/TripPlanner', function(err, db){
+var DB = process.env.MONGOD_URI || 'mongodb://localhost:27017/TripPlanner';
+mongoose.connect(DB, function(err){
   if (err) {
     throw err;
   }else {
@@ -27,6 +28,6 @@ var PORT = process.env.PORT || 3000;
 
 //setup listening on default port 
 app.listen(PORT);
-console.log("Listening on port: " + PORT);
+console.log('Listening on port: ' + PORT);
 
 
