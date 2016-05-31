@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Hike planning made easy",
   "main": "index.js",
+  "engines": {
+     "node": "6.0.0",
+     "npm": "3.8.6"
+  },
   "scripts": {
     "test": "test",
     "postinstall": "bower install"
