@@ -4,7 +4,8 @@
   "description": "Hike planning made easy",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
