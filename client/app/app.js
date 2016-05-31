@@ -2,10 +2,14 @@ angular.module('hikeplanner', [
   'ui.router',
   'ngAnimate',
   'hikeplanner.new-trip',
-  'hikeplanner.existing'
+  'hikeplanner.existing',
+  'ngCookies', 'auth0', 'ui.router', 'angular-jwt', 'angular-storage',
+
 ])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider
+  ,$httpProvider, $locationProvider, authProvider, jwtInterceptorProvider
+  ) {
   
   // routing for all the different states
     // add signin, signup, logout?
