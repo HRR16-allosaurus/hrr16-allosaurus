@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 //call dependencies from db, routing 
    
 //setup up listener on mongo
-var DB = process.env.MONGOD_URI || 'mongodb://localhost:27017/TripPlanner';
+var DB = process.env.MONGODB_URI || 'mongodb://localhost:27017/TripPlanner';
 mongoose.connect(DB, function(err){
   if (err) {
     throw err;
