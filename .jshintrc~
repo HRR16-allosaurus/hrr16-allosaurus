@@ -18,9 +18,8 @@
     "trailing": true,
     "smarttabs": true,
     "white": true,
-    "globals" :{
-       "angular": true,
-       "$": false,
-       "app": true       
+    globals :{
+    "angular": true,
+    "&": false
     }
 }
