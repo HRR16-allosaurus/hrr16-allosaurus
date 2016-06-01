@@ -35,3 +35,7 @@ a:hover {
   display: inline-block;
   width: 70%;
 }
+
+.profile {
+  height: 20px;
+}

@@ -80,15 +80,16 @@ angular.module('hikeplanner', [
     loginState: 'signin'
   });
   
+  // event listeners of login success, failure, and authentication
   authProvider.on('loginSuccess', function($location, $state, profilePromise, idToken, store) {
     console.log("Login Success");
     profilePromise.then(function(profile) {
+      console.log(profile);
       store.set('profile', profile);
       store.set('token', idToken);
-      console.log(profile);
+      $state.go('home');
     });
-    $location.path('/home');
-    // $state.go('home');
+    // $location.path('/home');
   });
 
   authProvider.on('loginFailure', function() {
@@ -107,8 +108,24 @@ angular.module('hikeplanner', [
   $httpProvider.interceptors.push('jwtInterceptor');
 
 })
-.run(function(auth) {
-  auth.hookEvents();
+.run(function($rootScope, auth, store, jwtHelper, $state) {
+  $rootScope.$on('$locationChangeStart', function() {
+    var token = store.get('token');
+    
+    // console.log('token', !!token); // check to see if there is a token
+    // console.log('token expired????', jwtHelper.isTokenExpired(token)); // check to see if token has expired (based on settings in Auth0)
+    // console.log('auth authen????', auth.isAuthenticated); // eg. if authenticated using google and you logout of google, on page refresh, auth.isAuthenticated will return false
+    
+    if( token ) {
+      if( !auth.isAuthenticated ) {
+        if( !jwtHelper.isTokenExpired(token) ) {
+          auth.authenticate(store.get('profile'), token);
+        } else {
+          $state.go('signin');
+        }
+      }
+    }
+  });
 });
 
 
