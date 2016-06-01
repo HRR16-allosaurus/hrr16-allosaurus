@@ -1,9 +1,9 @@
 .center {
   background-image: url("./img/bg2.jpg");
   background-repeat: no-repeat;
-  height: 450px;
   margin: auto;
   position: absolute;
+  height: 450px;
   top: 0;
   right: 0;
   bottom: 0;
@@ -29,4 +29,9 @@ a:hover {
 
 .trip-header {
   margin-top: 10px;
+}
+
+.supplies {
+  display: inline-block;
+  width: 70%;
 }
