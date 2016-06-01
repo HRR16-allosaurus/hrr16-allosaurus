@@ -4,7 +4,9 @@ angular.module('hikeplanner.existing', [])
 
   $scope.allTrips = [];
   $scope.tripNames = [];
+  $scope.search = [];
 
+  // retrieve all existing trips
   $scope.getAll = function() {
     console.log('retrieved');
     return $http({
@@ -12,9 +14,13 @@ angular.module('hikeplanner.existing', [])
       url: '/summary'
     })
     .then(function (resp) {
-      console.log(resp.data);
-      $scope.allTrips = resp.data;
-      $scope.tripNames = _.pluck($scope.allTrips, "name");
+      console.log(resp);
+      console.log('resp data', resp.data);
+      
+      $scope.tripNames = _.pluck(resp.data, "name");
+      $scope.allTrips = resp.data.slice();
+      console.log($scope.allTrips);
+      // console.log($scope.allTrips);
     });
     // $scope.allTrips = data;
     // console.log($scope.allTrips);

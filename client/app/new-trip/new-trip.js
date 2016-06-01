@@ -37,7 +37,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
     })
     .then(function (resp) {
       console.log(resp);
-      $location.path('/itinerary');
+      $location.path('/home/itinerary');
     });
     // console.log(data);
     // data.push($scope.tripData);

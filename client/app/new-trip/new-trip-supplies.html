@@ -1,9 +1,11 @@
 <div class="form-group">
-  <!-- <p class="text-center trip-header">Supplies</p> -->
   <label class="text-center trip-header">What supplies do you need?</label>
-  <input class="form-control text-center" type="text" ng-model="supply.value" name="supply" placeholder="add supply" autocomplete="off" />
-  <button class="btn btn-default btn-sm" ng-click="addSupplies()">Add</button>
-  
+  <div class="input-group">
+    <input class="form-control text-center" type="text" ng-model="supply.value" name="supply" placeholder="add supply" autocomplete="off" />
+    <span class="input-group-btn">
+      <button class="btn btn-default" ng-click="addSupplies()">Add</button>
+    </span>
+  </div>
   <div class="text-left">
     <ul class="list-unstyled">
       <li ng-repeat="supply in tripData.supplies track by $index">
@@ -13,5 +15,6 @@
     </ul>
   </div>
   
-  <a ui-sref="new-trip.summary"><button class="btn btn-default">Review</button></a>
+  <a ui-sref="home.new-trip.summary"><button class="btn btn-default">Review</button></a>
+  
 </div>
