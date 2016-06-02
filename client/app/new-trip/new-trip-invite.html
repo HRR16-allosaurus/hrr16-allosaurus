@@ -1,0 +1,20 @@
+<div class="form-group">
+  <label class="text-center trip-header">who do you want to invite?</label>
+  <div class="input-group">
+    <input class="form-control text-center" type="text" ng-model="email.value" name="email" placeholder="add email" autocomplete="off" />
+    <span class="input-group-btn">
+      <button class="btn btn-default" ng-click="addInvite()">Add</button>
+    </span>
+  </div>
+  <div class="text-left">
+    <ul class="list-unstyled">
+      <li ng-repeat="email in tripData.invites track by $index">
+        <button class="btn btn-xs btn-danger" ng-click="removeInvite(email)">Remove</button>
+        <span>{{ email }}</span>
+      </li>
+    </ul>
+  </div>
+  
+  <a ui-sref="home.new-trip.summary"><button class="btn btn-default">Review</button></a>
+  
+</div>

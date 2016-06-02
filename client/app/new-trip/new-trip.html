@@ -1,23 +1,18 @@
 <!-- parent template for all the new-trip child views -->
 
-<div class="text-center">
+<div>
   <h4>Plan your Trip</h4>
   
   <div class="status">
-    <a ui-sref-active="active" ui-sref=".what"><span>what</span></a>
+    <a ui-sref-active="active" ui-sref=".name"><span>name</span></a>
     <a ui-sref-active="active" ui-sref=".where"><span>where</span></a>
     <a ui-sref-active="active" ui-sref=".when"><span>when</span></a>
     <a ui-sref-active="active" ui-sref=".supplies"><span>supplies</span></a>
+    <a ui-sref-active="active" ui-sref=".invite"><span>invite</span></a>
     <a ui-sref-active="active" ui-sref=".summary"><span>summary</span></a>
   </div>
   
   <form>
     <div ui-view></div> 
   </form>
-  
-<!--   <pre>
-    {{ tripData }}
-    {{ supply }}
-  </pre>   -->
-  
 </div>

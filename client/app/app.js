@@ -1,6 +1,7 @@
 angular.module('hikeplanner', [
   'ui.router',
   'ngAnimate',
+  'hikeplanner.auth',
   'hikeplanner.home',
   'hikeplanner.new-trip',
   'hikeplanner.existing',
@@ -12,23 +13,17 @@ angular.module('hikeplanner', [
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, authProvider, $locationProvider, jwtInterceptorProvider) {
   
   // routing for all the different states
-    // add signin, signup, logout?
-  
   $stateProvider
   
     .state('signin', {
       url: '/signin',
-      templateUrl: 'app/home/signin.html',
+      templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
     })
-    // .state('signup', {
-    //   url: '/signup',
-    //   templateUrl: 'app/home/signup.html',
-    //   controller: 'AuthController'
-    // })
     .state('home', {
       url: '/home',
       templateUrl: 'app/home/home.html',
+      controller: 'HomeController',
       data: {
         requiresLogin: true
       }
@@ -41,9 +36,9 @@ angular.module('hikeplanner', [
       controller: 'newTripController'
     })
     // children of new-trip
-    .state('home.new-trip.what', {
-      url: '/what',
-      templateUrl: 'app/new-trip/new-trip-what.html'
+    .state('home.new-trip.name', {
+      url: '/name',
+      templateUrl: 'app/new-trip/new-trip-name.html'
     })
     .state('home.new-trip.where', {
       url: '/where',
@@ -56,6 +51,10 @@ angular.module('hikeplanner', [
     .state('home.new-trip.supplies', {
       url: '/supplies',
       templateUrl: 'app/new-trip/new-trip-supplies.html'
+    })
+    .state('home.new-trip.invite', {
+      url: '/invite',
+      templateUrl: 'app/new-trip/new-trip-invite.html'
     })
     .state('home.new-trip.summary', {
       url: '/summary',
@@ -81,20 +80,20 @@ angular.module('hikeplanner', [
   });
   
   // event listeners of login success, failure, and authentication
-  authProvider.on('loginSuccess', function($location, $state, profilePromise, idToken, store) {
+  authProvider.on('loginSuccess', function($rootScope, $state, profilePromise, idToken, store) {
     console.log("Login Success");
     profilePromise.then(function(profile) {
-      console.log(profile);
+      // console.log(profile);
+      $rootScope.profile = profile;
       store.set('profile', profile);
       store.set('token', idToken);
       $state.go('home');
     });
-    // $location.path('/home');
   });
 
   authProvider.on('loginFailure', function() {
     alert("Error");
-    $location.path('/signin')
+    $state.go('signin');
   });
 
   authProvider.on('authenticated', function($location) {

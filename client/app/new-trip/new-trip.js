@@ -1,14 +1,17 @@
 angular.module('hikeplanner.new-trip', ['ngAnimate'])
 
-.controller('newTripController', function($scope, $location, $http) {
+.controller('newTripController', function($scope, $rootScope, $http) {
 
   // new trip data
   $scope.tripData = {
+    user_id: $rootScope.profile.user_id,
+    invites_ids: [],
+    invites: [],
     name: '',
     where: '',
     begin: '',
     end: '',
-    supplies: []
+    supplies: [],
   };
   
   // to handle new supplies added
@@ -19,29 +22,41 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
   $scope.addSupplies = function() {
     $scope.tripData.supplies.push($scope.supply.value);
     $scope.supply.value = '';
-    // console.log(JSON.stringify($scope.tripData.supplies));
   };
   
   $scope.removeSupplies = function(item) {
     console.log(item);
     var supplies = $scope.tripData.supplies;
     supplies.splice(supplies.indexOf(item), 1);
-  }
+  };
+  
+  // to handle new invites added
+  $scope.email = {
+    value: ''
+  };
+  
+  $scope.addInvite = function() {
+    $scope.tripData.invites.push($scope.email.value);
+    $scope.email.value = '';
+  };
+  
+  $scope.removeInvite = function(item) {
+    console.log(item);
+    var invites = $scope.tripData.invites;
+    invites.splice(invites.indexOf(item), 1);
+  };
 
   $scope.post = function() {
     console.log('posted');
     return $http({
       method: 'POST',
-      url: '/summary',
+      url: '/summary/' + $rootScope.profile.user_id,
       data: $scope.tripData
     })
     .then(function (resp) {
       console.log(resp);
-      $location.path('/home/itinerary');
+      $state.go('home.itinerary');
     });
-    // console.log(data);
-    // data.push($scope.tripData);
-    
   };
   
 });
