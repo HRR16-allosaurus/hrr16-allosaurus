@@ -80,11 +80,13 @@ angular.module('hikeplanner', [
     loginState: 'signin'
   });
   
+  
+  
   // event listeners of login success, failure, and authentication
-  authProvider.on('loginSuccess', function($location, $state, profilePromise, idToken, store) {
+  authProvider.on('loginSuccess', function($rootScope,$location, $state, profilePromise, idToken, store) {
     console.log("Login Success");
     profilePromise.then(function(profile) {
-      console.log(profile);
+      $rootScope.profile = profile;
       store.set('profile', profile);
       store.set('token', idToken);
       $state.go('home');
