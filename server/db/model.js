@@ -4,6 +4,8 @@ var mongoose = require('mongoose');
 
 //setup schema
  var TripPlannerSchema = mongoose.Schema({
+    useremail: String,
+    inviteemail: [String],
     name: String,
     where: String,
     begin: String,

@@ -4,9 +4,14 @@ var handler = require('./controller');
 module.exports = function(app){
   
   //setup routing 
-  app.get('/summary',function(req, resp){
-    handler.getTrips(req,resp);
+  app.get('/summary/userTrips',function(req, resp){
+    handler.getUserTrips(req,resp);
   });
+  app.get('/summary/inviteTrips',function(req, resp){
+    handler.getInviteTrips(req,resp);
+  });
+
+  
   
   //post requests
   app.post('/summary',function(req, resp){
