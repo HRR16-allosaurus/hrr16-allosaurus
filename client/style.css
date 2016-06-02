@@ -1,9 +1,9 @@
-.center {
+.back {
   background-image: url("./img/bg2.jpg");
   background-repeat: no-repeat;
-  margin: auto;
+  margin: 0 auto;
   position: absolute;
-  height: 450px;
+  height: auto;
   top: 0;
   right: 0;
   bottom: 0;
@@ -22,11 +22,6 @@ a:hover {
   font-weight: bold;
 }
 
-.back {
-  background-image: url("./img/bg1.jpg");
-  background-repeat: no-repeat;
-}
-
 .trip-header {
   margin-top: 10px;
 }
@@ -38,4 +33,16 @@ a:hover {
 
 .profile {
   height: 20px;
+}
+
+a.auth {
+  cursor: pointer;
+}
+
+nav.navbar {
+  border-radius: 0;
+}
+
+.existing {
+  margin-top: 10px;
 }
