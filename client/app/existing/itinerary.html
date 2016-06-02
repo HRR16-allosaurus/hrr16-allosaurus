@@ -1,11 +1,8 @@
 <!-- this template should include trip summaries of all trips planned -->
 
-<div class="text-center">
+<div>
   <h4>All Trips</h4>
-  <div class="input-group">
-    <span class="input-group-btn">
-      <button class="btn btn-success" ng-click="getAll()">Get</button>
-    </span>
+  <div>
     <select class="form-control" ng-model="search">
       <option value="">All</option>
       <option ng-repeat="trip in tripNames track by $index" value={{trip}}>{{ trip }}</option>
@@ -13,7 +10,7 @@
   </div>
   <!-- <input type='text' ng-model='search' placeholder='filter' /> -->
   
-  <div class="text-left" ng-repeat="trip in allTrips | filter:search">
+  <div class="text-left existing" ng-repeat="trip in allTrips | filter:search">
     <div><strong>Name: </strong>{{ trip.name }}</div>
     <div><strong>Where: </strong>{{ trip.where }}</div>
     <div><strong>Leave: </strong>{{ trip.begin | date: "MM-dd-yyyy" }}</div>
