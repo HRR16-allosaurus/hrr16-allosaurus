@@ -6,8 +6,8 @@ var trip = require('./model.js');
 exports.createTrip = function(req, res){
   // console.log('I've been called');
   new trip({
-    useremail: req.body.useremail,
-    inviteemail: req.body.inviteemail,
+    user_id: req.body.user_id,
+    invite_ids: req.body.invite_ids,
     name: req.body.name,
     where: req.body.where,
     begin: req.body.begin,
@@ -16,7 +16,7 @@ exports.createTrip = function(req, res){
   }).save();
 
 };
-  
+
 exports.getTrips = function(req, res){
   trip.find({}, function(err, trips){
     if(err){
@@ -27,16 +27,14 @@ exports.getTrips = function(req, res){
   });
 };
 
-exports.getUserTrips = function(req, res){
-  trip.find({'useremail':req.body.useremail}, function(err, trips){
-    res.json(trips);
-  });
-};
-
 exports.getInviteTrips = function(req, res){
   trip.find({'inviteemail':req.body.useremail}, function(err, trips){
     res.json(trips);
   });
 };
 
-
+exports.getUserTrips = function(req, res){
+  trip.find({'inviteemail':req.body.useremail}, function(err, trips){
+    res.json(trips);
+  });
+};
