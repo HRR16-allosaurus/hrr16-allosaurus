@@ -1,6 +1,6 @@
 angular.module('hikeplanner.existing', [])
 
-.controller('existingController', function($scope, $location, $http) {
+.controller('existingController', function($scope,$rootScope, $location, $http) {
 
   $scope.allTrips = [];
   $scope.tripNames = [];
@@ -11,11 +11,11 @@ angular.module('hikeplanner.existing', [])
     console.log('retrieved');
     return $http({
       method: 'GET',
-      url: '/summary'
+      url: '/summary' + '/' + $rootScope.profile.user_id
     })
     .then(function (resp) {
-      console.log(resp);
-      console.log('resp data', resp.data);
+      // console.log(resp);
+      // console.log('resp data', resp.data);
       
       $scope.tripNames = _.pluck(resp.data, "name");
       $scope.allTrips = resp.data.slice();

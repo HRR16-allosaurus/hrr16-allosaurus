@@ -1,9 +1,11 @@
 angular.module('hikeplanner.new-trip', ['ngAnimate'])
 
-.controller('newTripController', function($scope, $location, $http) {
+.controller('newTripController', function($scope,$rootScope,$location, $http) {
 
   // new trip data
   $scope.tripData = {
+    user_id: $rootScope.profile.user_id,
+    invite_ids: [],
     name: '',
     where: '',
     begin: '',
@@ -32,7 +34,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
     console.log('posted');
     return $http({
       method: 'POST',
-      url: '/summary',
+      url: '/summary' + '/' + $rootScope.profile.user_id,
       data: $scope.tripData
     })
     .then(function (resp) {

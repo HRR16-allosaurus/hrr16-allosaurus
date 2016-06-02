@@ -1,15 +1,16 @@
 //main setup for routing mongoose to server
 var handler = require('./controller');
+var url = require('url');
 
 module.exports = function(app){
   
   //setup routing 
-  app.get('/summary',function(req, resp){
-    handler.getTrips(req,resp);
-  });
-  
+  app.get('/summary/*',function(req, resp){
+    handler.getUserTrips(req,resp);
+  }); 
+
   //post requests
-  app.post('/summary',function(req, resp){
+  app.post('/summary/*',function(req, resp){
     handler.createTrip(req,resp);
     resp.sendStatus(200);
   });
