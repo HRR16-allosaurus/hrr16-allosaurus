@@ -1,6 +1,7 @@
 //controller for db access
 //parent of model and connections
 var trip = require('./model.js');
+
 //function handlers for db (e.g store, etc.) on trip 
 
 exports.createTrip = function(req, res){
@@ -27,14 +28,18 @@ exports.getTrips = function(req, res){
   });
 };
 
-exports.getInviteTrips = function(req, res){
-  trip.find({'inviteemail':req.body.useremail}, function(err, trips){
+
+exports.getUserTrips = function(req, res){
+  trip.find({"user_id" : req.params[0]}, function(err, trips){
     res.json(trips);
   });
 };
 
-exports.getUserTrips = function(req, res){
-  trip.find({'inviteemail':req.body.useremail}, function(err, trips){
+
+exports.getInviteTrips = function(req, res){
+  trip.find({'invite_ids':req.body.invite_ids}, function(err, trips){
     res.json(trips);
   });
 };
+
+

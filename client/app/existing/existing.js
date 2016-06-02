@@ -14,8 +14,8 @@ angular.module('hikeplanner.existing', [])
       url: '/summary' + '/' + $rootScope.profile.user_id
     })
     .then(function (resp) {
-      console.log(resp);
-      console.log('resp data', resp.data);
+      // console.log(resp);
+      // console.log('resp data', resp.data);
       
       $scope.tripNames = _.pluck(resp.data, "name");
       $scope.allTrips = resp.data.slice();
