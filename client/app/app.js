@@ -4,11 +4,23 @@ angular.module('hikeplanner', [
   'hikeplanner.auth',
   'hikeplanner.home',
   'hikeplanner.new-trip',
+  'hikeplanner.new-trip-where',
   'hikeplanner.existing',
   'auth0',
   'angular-storage',
   'angular-jwt'
 ])
+
+.controller('backgroundController', function($scope, $interval) {
+  var src = ['bg1', 'bg2'];
+  $scope.img = {
+    url: "./img/bg2.jpg"
+  };
+  $scope.getImg = function() {
+    $scope.img.url = './img/' + src[Math.floor(Math.random()*src.length)] + '.jpg';
+  }
+  $interval($scope.getImg, 10000)
+})
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, authProvider, $locationProvider, jwtInterceptorProvider) {
   
@@ -42,7 +54,8 @@ angular.module('hikeplanner', [
     })
     .state('home.new-trip.where', {
       url: '/where',
-      templateUrl: 'app/new-trip/new-trip-where.html'
+      templateUrl: 'app/new-trip/new-trip-where.html',
+      controller: 'mapController'
     })
     .state('home.new-trip.when', {
       url: '/when',
@@ -127,7 +140,7 @@ angular.module('hikeplanner', [
       }
     }
   });
-});
+})
 
 
 

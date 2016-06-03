@@ -18,12 +18,14 @@
     <script src="lib/angular-animate/angular-animate.min.js"></script>
     <script src="app/auth/auth.js"></script>
     <script src="app/home/home.js"></script>
+    <script src="app/new-trip/new-trip-where.js"></script>
     <script src="app/new-trip/new-trip.js"></script>
     <script src="app/existing/existing.js"></script>
     <script src="app/app.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9zrj84r3C4q6XKvrIdJwxOMHy4w8g3ys&libraries=places" async defer></script>
   </head>
 
-  <body ng-app="hikeplanner">
-    <div ui-view class="back"></div>
+  <body ng-app="hikeplanner" ng-controller="backgroundController">
+    <div ui-view class="back" ng-style="{'background-image':'url(' + img.url + ')'}"></div>
   </body>
 </html>

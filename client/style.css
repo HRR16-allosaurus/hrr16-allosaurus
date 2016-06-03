@@ -1,5 +1,5 @@
 .back {
-  background-image: url("./img/bg2.jpg");
+  /*background-image: url("./img/bg2.jpg");*/
   background-repeat: no-repeat;
   margin: 0 auto;
   position: absolute;
@@ -8,6 +8,9 @@
   right: 0;
   bottom: 0;
   left: 0;
+  -webkit-transition: background 1s ease-in-out;
+  -moz-transition: background 1s ease-in-out;
+  transition: background 1s ease-in-out;
 }
 
 a:hover {
@@ -45,4 +48,26 @@ nav.navbar {
 
 .existing {
   margin-top: 10px;
+}
+
+#map {
+  height: 400px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.search {
+  margin-top: 10px;
+  width: 50%;
+}
+
+#trip.ng-enter { 
+  transition: 1s all ease; 
+  -moz-transition: 1s all ease; 
+  -webkit-transition: 1s all ease; 
+  opacity: 0;
+}
+
+#trip.ng-enter-active { 
+  opacity: 1;
 }
