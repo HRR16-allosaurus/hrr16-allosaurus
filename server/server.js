@@ -19,7 +19,7 @@ mongoose.connect(DB, function(err){
 require('./config/middleware.js')(app,express);
 
 //router setup for db
-require('./db/routing.js')(app);
+require('./routing.js')(app);
 
 //configure server
 var PORT = process.env.PORT || 3000;
