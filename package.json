@@ -4,8 +4,8 @@
   "description": "Hike planning made easy",
   "main": "index.js",
   "engines": {
-     "node": "6.0.0",
-     "npm": "3.8.6"
+    "node": "6.0.0",
+    "npm": "3.8.6"
   },
   "scripts": {
     "test": "test",
@@ -24,6 +24,7 @@
     "body-parser": "^1.4.3",
     "bower": "^1.7.9",
     "express": "^4.4.5",
-    "mongoose": "^4.1.0"
+    "mongoose": "^4.1.0",
+    "request": "^2.72.0"
   }
 }
