@@ -1,27 +1,26 @@
 <!-- this template should include trip summaries of all trips planned -->
 
-<div>
-  <h4>All Trips</h4>
-  <div>
-    <select class="form-control" ng-model="search">
-      <option value="">All</option>
-      <option ng-repeat="trip in tripNames track by $index" value={{trip}}>{{ trip }}</option>
-    </select>
-  </div>
-  <!-- <input type='text' ng-model='search' placeholder='filter' /> -->
-  
-  <div class="text-left existing" ng-repeat="trip in allTrips | filter:search">
-    <div><strong>Name: </strong>{{ trip.name }}</div>
-    <div><strong>Where: </strong>{{ trip.where }}</div>
-    <div><strong>Leave: </strong>{{ trip.begin | date: "MM-dd-yyyy" }}</div>
-    <div><strong>Return: </strong>{{ trip.end | date: "MM-dd-yyyy" }}</div>
-    <div><strong>Supplies: </strong>
-        <span ng-repeat="supply in trip.supplies track by $index">
-          {{ supply }}<span ng-show="!$last">,</span>
-        </span>
-    </div>
+<h4>All Trips</h4>
+<div class="trip-center">
+  <label>Filter</label>
+  <select class="form-control " ng-model="search">
+    <option value="">all</option>
+    <option ng-repeat="trip in tripNames track by $index" value={{trip}}>{{ trip }}</option>
+  </select>
+</div>
+
+<div class="text-left existing" ng-repeat="trip in allTrips | filter:search | orderBy:'name'">
+  <div><strong>Name: </strong>{{ trip.name }}</div>
+  <div><strong>Where: </strong>{{ trip.where }}</div>
+  <div><strong>Leave: </strong>{{ trip.begin | date: "MM-dd-yyyy" }}</div>
+  <div><strong>Return: </strong>{{ trip.end | date: "MM-dd-yyyy" }}</div>
+  <div><strong>Supplies: </strong>
+      <span ng-repeat="supply in trip.supplies track by $index">
+        {{ supply }}<span ng-show="!$last">,</span>
+      </span>
   </div>
 </div>
+
 
 
   

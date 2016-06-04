@@ -1,7 +1,7 @@
 angular.module('hikeplanner.new-trip', ['ngAnimate'])
 
 .factory('Location', function() {
-  
+  // default coordinates
   var coor = {
     lat: 37.7749295,
     long: -122.4194155
@@ -30,13 +30,41 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
   };
 })
 
-.controller('newTripController', function($scope, $rootScope, $http) {
+.factory('Users', function($http) {
+  
+  var getUsers = function(callback) {
+    $http({
+      method: 'GET',
+      url: '/users' // endpoint for user data
+    })
+    .then(function (resp) {
+      console.log(JSON.parse(resp.data));
+      // console.log(resp);
+      callback(JSON.parse(resp.data));
+    });
+  };
+  
+  return {
+    getUsers: getUsers
+  };
+})
 
+.controller('newTripController', function($scope, $rootScope, $state, $http, Users) {
+
+  $scope.users = [];
+  $scope.usersHash = {};
+  Users.getUsers(function(users) {
+    $scope.users = users;
+    $scope.users.forEach(function(user) {
+      $scope.usersHash[user.user_id] = user.name;
+    })
+    console.log($scope.users);
+  });
+  
   // new trip data
   $scope.tripData = {
-    // user_id: $rootScope.profile.user_id,
+    user_id: $rootScope.profile.user_id,
     invite_ids: [],
-    invites: [],
     name: '',
     where: '',
     begin: '',
@@ -61,26 +89,28 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
   };
   
   // to handle new invites added
-  $scope.email = {
-    value: ''
-  };
+  $scope.invites = [];
+  $scope.user = {
+    value: {}
+  }
   
   $scope.addInvite = function() {
-    $scope.tripData.invites.push($scope.email.value);
-    $scope.email.value = '';
+    console.log($scope.user.value);
+    $scope.tripData.invite_ids.push($scope.user.value);
+    // $scope.invite.push($user);
   };
   
-  $scope.removeInvite = function(item) {
-    console.log(item);
-    var invites = $scope.tripData.invites;
-    invites.splice(invites.indexOf(item), 1);
+  $scope.removeInvite = function(user_id) {
+    // console.log(user);
+    var invite_ids = $scope.tripData.invite_ids;
+    invite_ids.splice(invite_ids.indexOf(user_id), 1);
   };
 
   $scope.post = function() {
     console.log('posted');
     return $http({
       method: 'POST',
-      // url: '/summary' + '/' + $rootScope.profile.user_id,
+      url: '/summary/' + $rootScope.profile.user_id,
       data: $scope.tripData
     })
     .then(function (resp) {
@@ -89,12 +119,5 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
     });
   };
   
-  $http({
-      method: 'GET',
-      url: '/summary' + '/' // endpoint for user data
-    })
-    .then(function (resp) {
-      $scope.tripNames = _.pluck(resp.data, "name");
-      $scope.allTrips = resp.data.slice();
-    });
+
 });

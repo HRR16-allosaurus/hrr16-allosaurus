@@ -8,9 +8,9 @@
   right: 0;
   bottom: 0;
   left: 0;
-  -webkit-transition: background 1s ease-in-out;
-  -moz-transition: background 1s ease-in-out;
-  transition: background 1s ease-in-out;
+  -webkit-transition: background 2s ease-in-out;
+  -moz-transition: background 2s ease-in-out;
+  transition: background 2s ease-in-out;
 }
 
 a:hover {
@@ -46,9 +46,6 @@ nav.navbar {
   border-radius: 0;
 }
 
-.existing {
-  margin-top: 10px;
-}
 
 #map {
   height: 400px;
@@ -62,12 +59,53 @@ nav.navbar {
 }
 
 #trip.ng-enter { 
-  transition: 1s all ease; 
-  -moz-transition: 1s all ease; 
-  -webkit-transition: 1s all ease; 
+  transition: 2s all ease; 
+  -moz-transition: 2s all ease; 
+  -webkit-transition: 2s all ease; 
   opacity: 0;
 }
 
 #trip.ng-enter-active { 
   opacity: 1;
+}
+
+.main-view {
+  margin-bottom: 20px;
+}
+
+.trip-center {
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.side-side {
+  display: inline-block;
+  width: 200px;
+  height: 300px;
+  vertical-align: top;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+.right {
+  padding-left: 10px;
+  border-left: 1px dashed black;
+}
+.add-header {
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.delete {
+  color: red;
+}
+
+.summary, .existing {
+  width: 400px;
+  margin: 10px auto;
+}
+
+.block {
+  margin-top: 10px;
 }

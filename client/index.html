@@ -22,10 +22,11 @@
     <script src="app/new-trip/new-trip.js"></script>
     <script src="app/existing/existing.js"></script>
     <script src="app/app.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9zrj84r3C4q6XKvrIdJwxOMHy4w8g3ys&libraries=places" async defer></script>
   </head>
 
   <body ng-app="hikeplanner" ng-controller="backgroundController">
     <div ui-view class="back" ng-style="{'background-image':'url(' + img.url + ')'}"></div>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9zrj84r3C4q6XKvrIdJwxOMHy4w8g3ys&libraries=places" async defer></script>
   </body>
 </html>

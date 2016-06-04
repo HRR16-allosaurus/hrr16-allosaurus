@@ -1,20 +1,22 @@
-<div class="form-group">
-  <label class="text-center trip-header">who do you want to invite?</label>
-  <div class="input-group">
-    <input class="form-control text-center" type="text" ng-model="email.value" name="email" placeholder="add email" autocomplete="off" />
-    <span class="input-group-btn">
-      <button class="btn btn-default" ng-click="addInvite()">Add</button>
-    </span>
+<div class="block">
+  <div class="form-group side-side">
+    <label class="text-center trip-header">who do you want to invite?</label>
+    <select class="form-control" ng-model="user.value">
+      <option ng-repeat="user in users | orderBy: 'name'" value={{user.user_id}}>{{user.name}}</option>
+    </select>
+    <button class="btn btn-sm btn-default glyphicon glyphicon-chevron-right" ng-click="addInvite()"></button>
   </div>
-  <div class="text-left">
+    
+  <div class="text-left side-side right">
+    <div class="text-center add-header">invited</div>
     <ul class="list-unstyled">
-      <li ng-repeat="email in tripData.invites track by $index">
-        <button class="btn btn-xs btn-danger" ng-click="removeInvite(email)">Remove</button>
-        <span>{{ email }}</span>
+      <li ng-repeat="user_id in tripData.invite_ids track by $index">
+        <span class="glyphicon glyphicon-remove delete" ng-click="removeInvite(user_id)"></span>
+        <span>{{ usersHash[user_id] }}</span>
       </li>
     </ul>
   </div>
-  
+</div>
+<div>
   <a ui-sref="home.new-trip.summary"><button class="btn btn-default">Review</button></a>
-  
 </div>

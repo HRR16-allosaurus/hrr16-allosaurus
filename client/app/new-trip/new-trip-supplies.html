@@ -1,20 +1,25 @@
-<div class="form-group">
-  <label class="text-center trip-header">what supplies do you need?</label>
-  <div class="input-group">
-    <input class="form-control text-center" type="text" ng-model="supply.value" name="supply" placeholder="add supply" autocomplete="off" />
-    <span class="input-group-btn">
-      <button class="btn btn-default" ng-click="addSupplies()">Add</button>
-    </span>
+<div class="block">
+  <div class="form-group side-side">
+    <label class="text-center trip-header">what supplies do you need?</label>
+    <div class="input-group">
+      <input class="form-control text-center" type="text" ng-model="supply.value" name="supply" placeholder="add supply" autocomplete="off" />
+      <span class="input-group-btn">
+        <button class="btn btn-default" ng-click="addSupplies()">Add</button>
+      </span>
+    </div>
   </div>
-  <div class="text-left">
+
+  <div class="text-left side-side right">
+    <div class="text-center add-header">supplies</div>
     <ul class="list-unstyled">
       <li ng-repeat="supply in tripData.supplies track by $index">
-        <button class="btn btn-xs btn-danger" ng-click="removeSupplies(supply)">Remove</button>
+        <span class="glyphicon glyphicon-remove delete" ng-click="removeSupplies(supply)"></span>
         <span>{{ supply }}</span>
       </li>
     </ul>
   </div>
+</div>
   
+<div>
   <a ui-sref="home.new-trip.invite"><button class="btn btn-default">Next</button></a>
-  
 </div>

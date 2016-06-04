@@ -94,7 +94,7 @@ angular.module('hikeplanner', [
   
   
   
-  // event listeners of login success, failure, and authentication
+  // event listeners of login success, failure, and∑ authentication
   authProvider.on('loginSuccess', function($rootScope, $state, profilePromise, idToken, store) {
     console.log("Login Success");
     profilePromise.then(function(profile) {
