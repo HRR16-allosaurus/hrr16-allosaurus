@@ -1,42 +1,20 @@
-<div>
-  <h4 class="text-center trip-header">Review</h4>
-  <div class="text-left"> 
-    <div><strong>Name: </strong>{{ tripData.name }}</div>
-    <div><strong>Where: </strong>{{ tripData.where }}</div>
-    <div><strong>Leave: </strong>{{ tripData.begin | date: "MM-dd-yyyy" }}</div>
-    <div><strong>Return: </strong>{{ tripData.end | date: "MM-dd-yyyy" }}</div>
-    <div><strong>Supplies: </strong>
-        <span ng-repeat="supply in tripData.supplies track by $index">
-          {{ supply }}<span ng-show="!$last">,</span>
-        </span>
-    </div>
+<div class="text-left summary"> 
+  <div><strong>Name: </strong>{{ tripData.name }}</div>
+  <div><strong>Where: </strong>{{ tripData.where }}</div>
+  <div><strong>Leave: </strong>{{ tripData.begin | date: "MM-dd-yyyy" }}</div>
+  <div><strong>Return: </strong>{{ tripData.end | date: "MM-dd-yyyy" }}</div>
+  <div><strong>Supplies: </strong>
+    <span ng-repeat="supply in tripData.supplies track by $index">
+      {{ supply }}<span ng-show="!$last">,</span>
+    </span>
   </div>
-  
-  <button class="btn" type="submit" ng-click="post()">Submit</a></button>
+  <div><strong>Invites: </strong>
+    <span ng-repeat="user_id in tripData.invite_ids track by $index">
+      {{ usersHash[user_id] }}<span ng-show="!$last">,</span>
+    </span>
+  </div>
 </div>
-
-
-<!--     <table>
-      <tr>
-        <td><span>Name:</span></td>
-        <td>{{}}</td>
-      </tr>
-      <tr>
-        <td><span>Where:</span></td>
-        <td>{{}}</td>
-      </tr>
-      <tr>
-        <td><span>Leave:</span></td>
-        <td>{{}}</td>
-      </tr>
-      <tr>
-        <td><span>Return:</span></td>
-        <td>{{}}</td>
-      </tr>
-      <tr>
-        <td><span>Supplies</span></td>
-        <td>{{}}</td>
-      </tr>
-    </table>
   
-   -->
+<div>
+  <button class="btn btn-success" type="submit" ng-click="post()">Submit</a></button>
+</div>
