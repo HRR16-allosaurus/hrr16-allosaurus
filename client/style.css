@@ -8,9 +8,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  -webkit-transition: background 2s ease-in-out;
-  -moz-transition: background 2s ease-in-out;
-  transition: background 2s ease-in-out;
 }
 
 a:hover {

@@ -1,6 +1,6 @@
 //main setup for routing mongoose to server
-var handler = require('./db/controller');
-var authHandler = require('./auth0/apiHandler');
+var handler = require('./controller');
+var authHandler = require('../../auth0');
 var url = require('url');
 
 module.exports = function(app){
@@ -8,9 +8,10 @@ module.exports = function(app){
   //routing for users
   
   app.get('/users', function(req, resp){
-    authHandler.getAllUsers(function(err, response, body){
-       resp.json(body);
-    });
+    console.log(authHandler);
+    // authHandler.getAllUsers(function(body){
+    //   resp.json(body);
+    // });
   });
   
   //setup routing 

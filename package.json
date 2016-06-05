@@ -24,6 +24,7 @@
     "body-parser": "^1.4.3",
     "bower": "^1.7.9",
     "express": "^4.4.5",
+    "jquery": "^2.2.4",
     "mongoose": "^4.1.0",
     "request": "^2.72.0"
   }

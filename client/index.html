@@ -14,6 +14,9 @@
     <script src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
   
     <script src="lib/underscore/underscore.js"></script>
+    
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    
     <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="lib/angular-animate/angular-animate.min.js"></script>
     <script src="app/auth/auth.js"></script>
@@ -29,4 +32,61 @@
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9zrj84r3C4q6XKvrIdJwxOMHy4w8g3ys&libraries=places" async defer></script>
   </body>
+  
+  <script>
+      $(function(){
+        
+       var nextImage = function(index,data){
+        
+             // $(".back").fadeOut("slow",function(){
+             //          $(this).css({
+             //            "background-image":"url('" + data.images[index].display_sizes[0].uri + "')",
+             //              "-webkit-background-size": "cover",
+             //              "-moz-background-size": "cover",
+             //              "-o-background-size": "cover",
+             //              "background-size": "cover"
+             //            }).fadeIn("slow");
+             //      });
+             
+             
+             
+             
+             $('.back').animate({
+               opacity: 0.60},
+               1000, 
+               function(){
+                  $(this).css({
+                    "background-image":"url('" + data.images[index].display_sizes[0].uri + "')",
+                    "-webkit-background-size": "cover",
+                    "-moz-background-size": "cover",
+                    "-o-background-size": "cover",
+                    "background-size": "cover"
+                  });
+                }).animate({opacity:1.0},1000);
+
+       }; 
+        
+      var apiKey = 'sr6nkrp3uqx993kvuu8zb8n4';
+      setInterval(function(){
+            $.ajax(
+                {
+                  type:'GET',
+                  url:"https://api.gettyimages.com/v3/search/images/creative?phrase=hiking",
+                  beforeSend: function (request){
+                            request.setRequestHeader("Api-Key", apiKey);
+                        }
+                })
+                .done(function(data){
+                    var rand_index = Math.floor(Math.random()*data.images.length);
+                    nextImage(rand_index,data);
+                })
+                .fail(function(data){
+                    console.log(data);
+                })
+              }, 5000);
+
+ 
+    });
+  </script>
+  
 </html>
