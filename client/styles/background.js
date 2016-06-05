@@ -9,7 +9,7 @@ var nextImage = function(data){
                     "-webkit-background-size": "cover",
                     "-moz-background-size": "cover",
                     "-o-background-size": "cover",
-                    "background-size": "cover"
+                    "background-size": "cover",
                   });
                 }).animate({opacity:1.0},1000);
        }; 
@@ -35,6 +35,6 @@ $(function(){
                 .fail(function(data){
                     console.log(data);
                 })
-              }, 5000);
+              }, 6000);
  
 });
