@@ -1,3 +1,4 @@
+<!-- navigation bar -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
   
@@ -14,18 +15,44 @@
   </div>
 </nav>
 
+<!-- main container -->
 <div class="container-fluid text-center main-view">
   <div class="row">
-    <h3>Explore</h3>
-    <a class="btn btn-default" ui-sref="home.new-trip.name">New Trip</a>
-    <a class="btn btn-default" ui-sref="home.itinerary">View Existing</a>
-  </div>
-</div>
-
-<div class="container text-center">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div ui-view></div>
+  
+    <div class="col-md-6" ng-class="{'col-md-offset-3': !chat.value, 'col-md-6': !chat.value, 'col-md-9': chat.value}">
+      <a href="" class="chat-toggle" ng-click="toggleChat()"><span class="glyphicon glyphicon-comment"></span></a>
+      <h3>Explore</h3>
+      <a class="btn btn-default" ui-sref="home.new-trip.name">New Trip</a>
+      <a class="btn btn-default" ui-sref="home.itinerary">View Existing</a>
+      
+      <!-- container for new-trip and existing trip children views -->
+      <div class="row">
+        <div class="col-md-12">
+          <div ui-view></div>
+        </div>
+      </div>
     </div>
+    
+    <!-- container for chat panel   -->
+    <!-- should probably put this in separate view -->
+    <div class="col-md-3" id="chat" ng-if="chat.value">
+      <div>
+        <form>
+          <div class="input-group">
+            <input id="message" class="form-control" ng-model="chat.message" autocomplete="off" />
+            <span class="input-group-btn">
+              <button class="btn btn-default" ng-click="sendMessage()">Send</button>
+            </span>
+          </div>
+        </form>
+        <ul class="list-unstyled text-left">
+          <li class="message" ng-repeat="chat in chat.allMessages">
+            <span class="user"><strong>{{ chat.user }}: </strong></span>
+            <span class="chat">{{ chat.message }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
   </div>
 </div>
