@@ -27,7 +27,7 @@ exports.getTrips = function(req, res){
 
 //gets all trips for a given user
 exports.getUserTrips = function(req, res){
-  Trip.find({'user_id' : req.params[0]}, function(err, trips){
+  Trip.find({ $or: [{'invite_ids': req.params[0]}, {'user_id': req.params[0]}]}, function(err, trips){
     res.json(trips);
   });
 };
