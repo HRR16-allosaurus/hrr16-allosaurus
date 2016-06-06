@@ -11,6 +11,7 @@
 
 <div class="text-left existing" ng-repeat="trip in allTrips | filter:search | orderBy:'name'">
   <div><strong>Name: </strong>{{ trip.name }}</div>
+  <div><strong>Created By: </strong>{{ usersHash[trip.user_id] }}</div>
   <div><strong>Where: </strong>{{ trip.where }}</div>
   <div><strong>Leave: </strong>{{ trip.begin | date: "MM-dd-yyyy" }}</div>
   <div><strong>Return: </strong>{{ trip.end | date: "MM-dd-yyyy" }}</div>
@@ -18,6 +19,11 @@
       <span ng-repeat="supply in trip.supplies track by $index">
         {{ supply }}<span ng-show="!$last">,</span>
       </span>
+  </div>
+  <div><strong>Invites: </strong>
+    <span ng-repeat="user_id in trip.invite_ids track by $index">
+      {{ usersHash[user_id] }}<span ng-show="!$last">,</span>
+    </span>
   </div>
 </div>
 

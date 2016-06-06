@@ -26,7 +26,7 @@ require('./routing.js')(app);
 io.on('connection', function(socket) {
   console.log('a user connected');  
   socket.on('chat sent', function(chatObj) {
-    io.emit('new chat', chatObj);
+    socket.broadcast.emit('new chat', chatObj);
   });
 });
 
