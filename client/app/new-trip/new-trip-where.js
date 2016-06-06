@@ -68,9 +68,9 @@ angular.module('hikeplanner.new-trip-where', [])
     link: function(scope, element, attrs, ngModel) {
       scope.$watch(function () {
         return element.val();
-      }, function(cur, prev) {
-        ngModel.$setViewValue(cur)
-      })
+      }, function(cur) {
+        ngModel.$setViewValue(cur);
+      });
     }
-  }
+  };
 });
