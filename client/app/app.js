@@ -14,12 +14,12 @@ angular.module('hikeplanner', [
 .controller('backgroundController', function($scope, $interval) {
   var src = ['bg1', 'bg2'];
   $scope.img = {
-    url: "./img/bg2.jpg"
+    url: './img/bg2.jpg'
   };
   $scope.getImg = function() {
     $scope.img.url = './img/' + src[Math.floor(Math.random()*src.length)] + '.jpg';
-  }
-  $interval($scope.getImg, 10000)
+  };
+  $interval($scope.getImg, 10000);
 })
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, authProvider, $locationProvider, jwtInterceptorProvider) {
@@ -88,7 +88,7 @@ angular.module('hikeplanner', [
   authProvider.init({
     domain: 'allosaurus.auth0.com',
     clientID: 'YGqCODwSssRJssk0b3wDJyoyb3eH6foU',
-    callbackURL: location.href,
+    // callbackURL: location.href,
     loginState: 'signin'
   });
   
@@ -96,7 +96,7 @@ angular.module('hikeplanner', [
   
   // event listeners of login success, failure, and∑ authentication
   authProvider.on('loginSuccess', function($rootScope, $state, profilePromise, idToken, store) {
-    console.log("Login Success");
+    console.log('Login Success');
     profilePromise.then(function(profile) {
       // console.log(profile);
       $rootScope.profile = profile;
@@ -106,13 +106,13 @@ angular.module('hikeplanner', [
     });
   });
 
-  authProvider.on('loginFailure', function() {
-    alert("Error");
+  authProvider.on('loginFailure', function($state) {
+    console.log('Error');
     $state.go('signin');
   });
 
-  authProvider.on('authenticated', function($location) {
-    console.log("Authenticated");
+  authProvider.on('authenticated', function() {
+    console.log('Authenticated');
   });
   
   jwtInterceptorProvider.tokenGetter = function(store) {
@@ -140,7 +140,7 @@ angular.module('hikeplanner', [
       }
     }
   });
-})
+});
 
 
 

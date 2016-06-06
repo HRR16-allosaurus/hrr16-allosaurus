@@ -10,7 +10,7 @@ angular.module('hikeplanner.existing', [])
       url: '/summary' + '/' + $rootScope.profile.user_id
     })
     .then(function (resp) {
-      $scope.tripNames = _.pluck(resp.data, "name");
+      $scope.tripNames = _.pluck(resp.data, 'name');
       $scope.allTrips = resp.data.slice();
     });
 });

@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
 var io = require('socket.io')(http);
    
 //configure mongo variable for Heroku and local 
@@ -13,7 +12,7 @@ mongoose.connect(DB, function(err){
   if (err) {
     throw err;
   } else {
-    console.log("Listening on mongo");
+    console.log('Listening on mongo');
   }
 }); 
 
@@ -28,8 +27,8 @@ io.on('connection', function(socket) {
   console.log('a user connected');  
   socket.on('chat sent', function(chatObj) {
     io.emit('new chat', chatObj);
-  })
-})
+  });
+});
 
 //configure server variable for Heroku and local
 var PORT = process.env.PORT || 3000;

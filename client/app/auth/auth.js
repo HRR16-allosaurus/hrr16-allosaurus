@@ -1,5 +1,5 @@
 angular.module('hikeplanner.auth', [])
-.controller('AuthController', function($scope, $location, auth, $state) {
+.controller('AuthController', function($scope, $location, auth) {
   
   $scope.auth = auth;
 

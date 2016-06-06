@@ -4,8 +4,6 @@
 var handler = require('./db/controller'); 
 var authHandler = require('./auth0/apiHandler');
 
-var url = require('url');
-
 module.exports = function(app){
   
   //gets users from auth0
@@ -22,7 +20,7 @@ module.exports = function(app){
 
   //submit user trip
   app.post('/summary/*',function(req, resp){
-    handler.createTrip(req,resp);
+    handler.createTrip(req);
     resp.sendStatus(200);
   });
   

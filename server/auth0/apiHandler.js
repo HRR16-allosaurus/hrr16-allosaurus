@@ -3,7 +3,7 @@ var request = require('request');
 
 //header information 
 var header = {
-  uri: "https://allosaurus.auth0.com/api/v2/users?fields=user_id,name",
+  uri: 'https://allosaurus.auth0.com/api/v2/users?fields=user_id,name',
   method: 'GET',
   headers: {
     Authorization: auth0.AUTH0_AUTHENTICATION

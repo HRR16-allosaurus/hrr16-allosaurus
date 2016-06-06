@@ -1,7 +1,6 @@
 //main setup for routing mongoose to server
 var handler = require('./db/controller');
 var authHandler = require('./auth0/apiHandler');
-var url = require('url');
 
 module.exports = function(app){
   
@@ -20,7 +19,7 @@ module.exports = function(app){
 
   //post requests
   app.post('/summary/*',function(req, resp){
-    handler.createTrip(req,resp);
+    handler.createTrip(req);
     resp.sendStatus(200);
   });
   
