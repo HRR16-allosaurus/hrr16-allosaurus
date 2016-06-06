@@ -1,5 +1,5 @@
 .back {
-  background-image: url("./img/bg2.jpg");
+  /*background-image: url("./img/bg2.jpg");*/
   background-repeat: no-repeat;
   margin: 0 auto;
   position: absolute;
@@ -8,6 +8,9 @@
   right: 0;
   bottom: 0;
   left: 0;
+  -webkit-transition: background 2s ease-in-out;
+  -moz-transition: background 2s ease-in-out;
+  transition: background 2s ease-in-out;
 }
 
 a:hover {
