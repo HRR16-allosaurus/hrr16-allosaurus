@@ -63,7 +63,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
   
   // new trip data
   $scope.tripData = {
-    user_id: $rootScope.profile.user_id,
+    user_id: $rootScope.profile === undefined ? {} : $rootScope.profile.user_id,
     invite_ids: [],
     name: '',
     where: '',

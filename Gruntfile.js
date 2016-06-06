@@ -9,10 +9,23 @@ module.exports = function(grunt) {
         force: 'true',
         jshintrc: '.jshintrc',
         ignores: [
-          'client/lib/**/*.js'
+        'client/lib/**/*.js'
         ]
       }
     },
+
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js'
+      },
+
+      continuous: {
+        configFile: './karma.conf.js',
+        singleRun: true,
+        browsers: ['PhantomJS']
+      },
+    },
+
 
 
   });
@@ -22,7 +35,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  
+  grunt.loadNpmTasks('grunt-karma');
+
   // grunt.registerTask('server-dev', function (target) {
     // Running nodejs in a different process and displaying output on the main console
   //   var nodemon = grunt.util.spawn({
@@ -49,6 +63,7 @@ module.exports = function(grunt) {
   // grunt.registerTask('default', ['test', 'build', 'upload']);
 
   grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('continuous', ['continuous']);
 
   // grunt.registerTask('build', ['concat', 'uglify', 'cssmin']);
 

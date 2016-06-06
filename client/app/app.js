@@ -100,6 +100,7 @@ angular.module('hikeplanner', [
     profilePromise.then(function(profile) {
       // console.log(profile);
       $rootScope.profile = profile;
+      console.log(profile)
       store.set('profile', profile);
       store.set('token', idToken);
       $state.go('home');
