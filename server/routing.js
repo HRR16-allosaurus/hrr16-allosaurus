@@ -1,24 +1,26 @@
-//main setup for routing mongoose to server
-var handler = require('./db/controller');
+//setup for routing mongoose and auth0
+
+//helper functions 
+var handler = require('./db/controller'); 
 var authHandler = require('./auth0/apiHandler');
+
 var url = require('url');
 
 module.exports = function(app){
   
-  //routing for users
-  
+  //gets users from auth0
   app.get('/users', function(req, resp){
     authHandler.getAllUsers(function(err, response, body){
        resp.json(body);
     });
   });
   
-  //setup routing 
+  //get user trips
   app.get('/summary/*',function(req, resp){
     handler.getUserTrips(req,resp);
   }); 
 
-  //post requests
+  //submit user trip
   app.post('/summary/*',function(req, resp){
     handler.createTrip(req,resp);
     resp.sendStatus(200);
