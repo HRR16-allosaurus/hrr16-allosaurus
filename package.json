@@ -1,4 +1,4 @@
-{
+  {
   "name": "hike_planner",
   "version": "1.0.0",
   "description": "Hike planning made easy",
@@ -8,7 +8,7 @@
     "npm": "3.8.6"
   },
   "scripts": {
-    "test": "test",
+    "test": "grunt",
     "postinstall": "bower install"
   },
   "repository": {
@@ -21,6 +21,8 @@
     "url": "https://github.com/MagWeaver/hrr16-allosaurus/issues"
   },
   "dependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jshint": "^1.0.0",
     "body-parser": "^1.4.3",
     "bower": "^1.7.9",
     "express": "^4.4.5",

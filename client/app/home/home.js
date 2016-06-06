@@ -8,7 +8,7 @@ angular.module('hikeplanner.home', [])
   $scope.logout = function() {
     auth.signout();
     $state.go('signin');
-  }
+  };
   
   // chat related
   $scope.chat = {
@@ -28,13 +28,13 @@ angular.module('hikeplanner.home', [])
       message: $scope.chat.message
     });
     $scope.chat.message = '';
-  }
+  };
   
   // Chat.socket.emit('authenticated', auth.profile.name);
   
   Chat.socket.on('new chat', function(chatObj) {
     $scope.chat.allMessages.push(chatObj);
-  })
+  });
   
 })
 
@@ -46,4 +46,4 @@ angular.module('hikeplanner.home', [])
   return {
     socket: socket
   };
-})
+});

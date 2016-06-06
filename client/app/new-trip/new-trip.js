@@ -12,11 +12,11 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
       coor.lat = position.coords.latitude;
       coor.long = position.coords.longitude;
       callback();
-    };
+    }
     function error() {
       console.log('unable to get location');
       callback();
-    };
+    }
     if (!navigator.geolocation) {
       console.log('geolocation IS NOT available');
       callback();
@@ -57,7 +57,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
     $scope.users = users;
     $scope.users.forEach(function(user) {
       $scope.usersHash[user.user_id] = user.name;
-    })
+    });
     console.log($scope.users);
   });
   
@@ -92,7 +92,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
   $scope.invites = [];
   $scope.user = {
     value: {}
-  }
+  };
   
   $scope.addInvite = function() {
     console.log($scope.user.value);

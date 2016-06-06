@@ -1,8 +1,6 @@
-//setup mongodb schema 
-//import mongoose
+//Mongo schema setup
 var mongoose = require('mongoose');
 
-//setup schema
  var TripPlannerSchema = mongoose.Schema({
     user_id: String,
     invite_ids: [String],
