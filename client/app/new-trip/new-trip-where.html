@@ -1,8 +1,8 @@
 <div class="form-group">
   <label class="text-center trip-header">where do you want to go?</label>
   
-  <input id="map-input" class="form-control search" type="text" placeholder="Enter a location" ng-model="tripData.where" ng-click="$event.preventDefault(); $event.stopPropagation()" required autocomplete="on">
+  <input id="map-input" class="form-control search" type="text" placeholder="Enter a location" ng-model="tripData.where" trip-auto required>
   <div id="map"></div>
 
-  <a ui-sref="home.new-trip.when"><button class="btn btn-default">Next</button></a>
+  <a ui-sref="home.new-trip.when"><button type="button" class="btn btn-default">Next</button></a>
 </div>
