@@ -58,6 +58,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
     $scope.users.forEach(function(user) {
       $scope.usersHash[user.user_id] = user.name;
       // console.log($scope.users);
+    });
   });
   
   // new trip data
@@ -113,7 +114,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
       data: $scope.tripData
     })
     .then(function (resp) {
-      // console.log(resp);
+      console.log(resp);
       $state.go('home.itinerary');
     });
   };
