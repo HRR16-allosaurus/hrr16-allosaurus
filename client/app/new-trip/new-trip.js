@@ -38,7 +38,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
       url: '/users' // endpoint for user data
     })
     .then(function (resp) {
-      console.log(JSON.parse(resp.data));
+      // console.log(JSON.parse(resp.data));
       // console.log(resp);
       callback(JSON.parse(resp.data));
     });
@@ -58,7 +58,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
     $scope.users.forEach(function(user) {
       $scope.usersHash[user.user_id] = user.name;
     })
-    console.log($scope.users);
+    // console.log($scope.users);
   });
   
   // new trip data
@@ -95,7 +95,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
   }
   
   $scope.addInvite = function() {
-    console.log($scope.user.value);
+    // console.log($scope.user.value);
     $scope.tripData.invite_ids.push($scope.user.value);
     // $scope.invite.push($user);
   };
@@ -114,7 +114,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
       data: $scope.tripData
     })
     .then(function (resp) {
-      console.log(resp);
+      // console.log(resp);
       $state.go('home.itinerary');
     });
   };
