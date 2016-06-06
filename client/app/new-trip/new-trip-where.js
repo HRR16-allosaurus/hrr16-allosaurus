@@ -60,4 +60,17 @@ angular.module('hikeplanner.new-trip-where', [])
       });
   });
 
+})
+.directive('tripAuto', function() {
+  return {
+    restrict: 'A',
+    require: 'ngModel',
+    link: function(scope, element, attrs, ngModel) {
+      scope.$watch(function () {
+        return element.val();
+      }, function(cur, prev) {
+        ngModel.$setViewValue(cur)
+      })
+    }
+  }
 });
