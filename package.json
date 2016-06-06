@@ -8,7 +8,7 @@
     "npm": "3.8.6"
   },
   "scripts": {
-    "test": "test",
+    "test": "grunt",
     "postinstall": "bower install"
   },
   "repository": {
