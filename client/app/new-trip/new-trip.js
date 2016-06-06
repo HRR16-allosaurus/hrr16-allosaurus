@@ -30,36 +30,7 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
   };
 })
 
-.factory('Users', function($http) {
-  
-  var getUsers = function(callback) {
-    $http({
-      method: 'GET',
-      url: '/users' // endpoint for user data
-    })
-    .then(function (resp) {
-      // console.log(JSON.parse(resp.data));
-      // console.log(resp);
-      callback(JSON.parse(resp.data));
-    });
-  };
-  
-  return {
-    getUsers: getUsers
-  };
-})
-
 .controller('newTripController', function($scope, $rootScope, $state, $http, Users) {
-
-  $scope.users = [];
-  $scope.usersHash = {};
-  Users.getUsers(function(users) {
-    $scope.users = users;
-    $scope.users.forEach(function(user) {
-      $scope.usersHash[user.user_id] = user.name;
-      // console.log($scope.users);
-    });
-  });
   
   // new trip data
   $scope.tripData = {
@@ -93,6 +64,8 @@ angular.module('hikeplanner.new-trip', ['ngAnimate'])
   $scope.user = {
     value: {}
   };
+  $scope.users = Users.users;
+  $scope.usersHash = Users.usersHash;
   
   $scope.addInvite = function() {
     // console.log($scope.user.value);

@@ -19,7 +19,7 @@ angular.module('hikeplanner', [
   $scope.getImg = function() {
     $scope.img.url = './img/' + src[Math.floor(Math.random()*src.length)] + '.jpg';
   };
-  $interval($scope.getImg, 10000);
+  $interval($scope.getImg, 20000);
 })
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider, authProvider, $locationProvider, jwtInterceptorProvider) {
