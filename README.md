@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/HRR16-allosaurus/hrr16-allosaurus.svg?branch=master)](https://travis-ci.org/HRR16-allosaurus/hrr16-allosaurus)
 # Hike Planner
 
 > An app for anyone that wants to plan a trip more easily.
