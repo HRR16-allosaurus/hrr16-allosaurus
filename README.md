@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/HRR16-allosaurus/hrr16-allosaurus.svg?branch=master)](https://travis-ci.org/HRR16-allosaurus/hrr16-allosaurus)
-# Hike Planner
+# Trip Planner
 
-> An app for anyone that wants to plan a trip more easily.
+> An app for anyone that wants to plan a trip with other people more easily. Trip planner combines a minimal interface, social network, and realtime chatting to sort out your adventure. Pick where and when, propose trips to your friends, chat with them in realtime, and assign repsonsibilities (food, gear, supplies) so everyone is on the same page. 
 
 ## Team
 
